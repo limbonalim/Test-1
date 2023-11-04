@@ -10,3 +10,17 @@
 .OrderItem .name {
   flex-grow: 1;
 }
+
+.OrderItem .delete-button {
+  color: white;
+  background: #ec3030;
+}
+
+.OrderItem .delete-button:hover {
+  background: #f14444;
+}
+
+.OrderItem .delete-button:active {
+  color: grey;
+  box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+}

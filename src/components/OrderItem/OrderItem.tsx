@@ -14,7 +14,7 @@ const OrderItem: React.FC<Props> = ({name, quantity, cost, deleteItem}) => {
       <span className="name">{name}</span>
         <span>x {quantity}</span>
         <span>{cost} KGS</span>
-        <button onClick={deleteItem}>Delete</button>
+        <button onClick={deleteItem} className="delete-button">Delete</button>
     </div>
   );
 };
