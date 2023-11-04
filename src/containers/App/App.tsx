@@ -1,13 +1,13 @@
 import {useState} from 'react';
-import {MenuItems, Orders} from '../../types';
 import Menu from '../../components/Menu/Menu';
 import Order from '../../components/Order/Order';
+import {MenuItems, Orders} from '../../types';
 import hamburgerImage from '../../assets/hamburger.jpeg';
-import cheeseburgerImage from '../../assets/cheesburger.jpg'
-import chickenWingImage from '../../assets/chickenWing.jpeg'
-import franceFriedImage from '../../assets/franceFried.jpeg'
-import teaImage from '../../assets/tea.jpeg'
-import coffeeImage from '../../assets/coffee.jpg'
+import cheeseburgerImage from '../../assets/cheesburger.jpg';
+import chickenWingImage from '../../assets/chickenWing.jpeg';
+import franceFriedImage from '../../assets/franceFried.jpeg';
+import teaImage from '../../assets/tea.jpeg';
+import coffeeImage from '../../assets/coffee.jpg';
 import './App.css';
 
 const MenuItems: MenuItems[] = [
@@ -21,7 +21,7 @@ const MenuItems: MenuItems[] = [
 
 const App = () => {
   const [order, setOrder] = useState<Orders[]>([]);
-  const [total, setTotal] = useState(0)
+  const [total, setTotal] = useState(0);
 
   const addItem = (name: string, price: number) => {
     setTotal(prevState => prevState + price);
@@ -35,16 +35,16 @@ const App = () => {
       if (isHave) {
         return prevState.map(item => {
           if (name === item.name) {
-            return {...item, quantity: item.quantity + 1}
+            return {...item, quantity: item.quantity + 1};
           }
           return {...item};
-        })
+        });
       }
-      return [...prevState, {name: name, price: price, quantity: 1}]
+      return [...prevState, {name: name, price: price, quantity: 1}];
     });
   };
 
-  const deleteItem = (name:string, price:number) => {
+  const deleteItem = (name: string, price: number) => {
     setTotal(prevState => prevState - price);
     setOrder(prevState => {
       let isMoreThenOne = false;
@@ -56,17 +56,17 @@ const App = () => {
       if (isMoreThenOne) {
         return prevState.map((item) => {
           if (name === item.name) {
-            return {...item, quantity: item.quantity - 1}
+            return {...item, quantity: item.quantity - 1};
           }
           return {...item};
-        })
+        });
       }
       return prevState.filter((item) => {
         if (name !== item.name) {
           return true;
         }
-      })
-    })
+      });
+    });
   };
 
   return (

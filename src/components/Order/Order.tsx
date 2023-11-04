@@ -1,6 +1,6 @@
 import React from 'react';
 import OrderItem from '../OrderItem/OrderItem';
-import './Order.css'
+import './Order.css';
 import {Orders} from '../../types';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   order: Orders[];
 }
 
-const Order:React.FC <Props> = ({totalCost, order, deleteItem}) => {
+const Order: React.FC<Props> = ({totalCost, order, deleteItem}) => {
   return (
     <div className="Order">
       <div>
@@ -23,7 +23,8 @@ const Order:React.FC <Props> = ({totalCost, order, deleteItem}) => {
               quantity={item.quantity}
               cost={item.price}
               deleteItem={() => deleteItem(item.name, item.price)}
-            />) : <div>Add something...</div>}
+            />) : <div>Add something...</div>
+        }
       </div>
     </div>
   );

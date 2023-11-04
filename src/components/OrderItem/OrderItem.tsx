@@ -1,5 +1,5 @@
 import React from 'react';
-import './OrderItem.css'
+import './OrderItem.css';
 
 interface Props {
   name: string;
@@ -12,9 +12,9 @@ const OrderItem: React.FC<Props> = ({name, quantity, cost, deleteItem}) => {
   return (
     <div className="OrderItem">
       <span className="name">{name}</span>
-        <span>x {quantity}</span>
-        <span>{cost} KGS</span>
-        <button onClick={deleteItem} className="delete-button">Delete</button>
+      <span>x {quantity}</span>
+      <span>{cost} KGS</span>
+      <button onClick={deleteItem} className="delete-button">Delete</button>
     </div>
   );
 };
