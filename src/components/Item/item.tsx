@@ -1,4 +1,5 @@
 import React from 'react';
+import './Item.css'
 
 interface Props {
   name: string;
@@ -10,7 +11,7 @@ interface Props {
 const Item: React.FC<Props> = ({name, image, price, addItem}) => {
 
   return (
-    <div onClick={addItem}>
+    <div onClick={addItem} className="Item">
       <img src={image} alt={name}/>
       <div>
         <span>{name}</span>

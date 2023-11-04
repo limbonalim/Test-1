@@ -16,8 +16,7 @@ const Order:React.FC <Props> = ({totalCost, order, deleteItem}) => {
         Total: {totalCost}
       </div>
       <div className="Order-Container">
-        {order.map((item) => <OrderItem name={item.name} quantity={item.quantity} cost={item.price} deleteItem={() => deleteItem(item.name)}/>)}
-
+        {order.map((item, index) => <OrderItem key={index} name={item.name} quantity={item.quantity} cost={item.price} deleteItem={() => deleteItem(item.name, item.price)}/>)}
       </div>
     </div>
   );

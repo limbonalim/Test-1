@@ -1,23 +1,30 @@
 import {useState} from 'react';
-import hamburgerImage from '../../assets/hamburger.jpeg';
 import {MenuItems, Orders} from '../../types';
-import './App.css';
 import Menu from '../../components/Menu/Menu';
 import Order from '../../components/Order/Order';
-import item from '../../components/Item/item';
-
+import hamburgerImage from '../../assets/hamburger.jpeg';
+import cheeseburgerImage from '../../assets/cheesburger.jpg'
+import chickenWingImage from '../../assets/chickenWing.jpeg'
+import franceFriedImage from '../../assets/franceFried.jpeg'
+import teaImage from '../../assets/tea.jpeg'
+import coffeeImage from '../../assets/coffee.jpg'
+import './App.css';
 
 const MenuItems: MenuItems[] = [
-  {name: 'Hamburger', price: 90, image: hamburgerImage}
+  {name: 'Hamburger', price: 90, image: hamburgerImage},
+  {name: 'Cheeseburger', price: 100, image: cheeseburgerImage},
+  {name: 'Chicken Wings', price: 120, image: chickenWingImage},
+  {name: 'France Fried', price: 50, image: franceFriedImage},
+  {name: 'Tea', price: 20, image: teaImage},
+  {name: 'Coffee', price: 30, image: coffeeImage},
 ];
 
 const App = () => {
+  const [order, setOrder] = useState<Orders[]>([]);
+  const [total, setTotal] = useState(0)
 
-  const [order, setOrder] = useState<Orders[]>([
-    {name: 'Hello', price: 1, quantity: 1}
-  ]);
-
-  const addItem = (name, price) => {
+  const addItem = (name: string, price: number) => {
+    setTotal(prevState => prevState + price);
     setOrder(prevState => {
       let isHave = false;
       prevState.forEach((item) => {
@@ -37,7 +44,8 @@ const App = () => {
     });
   };
 
-  const deleteItem = (name) => {
+  const deleteItem = (name:string, price:number) => {
+    setTotal(prevState => prevState - price);
     setOrder(prevState => {
       let isMoreThenOne = false;
       prevState.forEach((item) => {
@@ -61,9 +69,10 @@ const App = () => {
     })
   };
 
-  return (<div>
+  return (
+    <div className="container">
       <Menu menu={MenuItems} addItem={addItem}/>
-      <Order totalCost={1} order={order} deleteItem={deleteItem}/>
+      <Order totalCost={total} order={order} deleteItem={deleteItem}/>
     </div>
   );
 };
