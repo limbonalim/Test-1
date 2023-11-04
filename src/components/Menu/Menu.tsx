@@ -4,12 +4,13 @@ import {MenuItems} from '../../types';
 
 interface Props {
   menu: MenuItems[];
+  addItem: any;
 }
 
-const Menu:React.FC<Props> = ({menu}) => {
+const Menu:React.FC<Props> = ({menu, addItem}) => {
   return (
     <div>
-      {menu.map((item, index) => <Item key={index} name={item.name} image={item.image} price={item.price}/>)}
+      {menu.map((item, index) => <Item key={index} name={item.name} image={item.image} price={item.price} addItem={() => addItem(item.name, item.price)}/>)}
 
     </div>
   );

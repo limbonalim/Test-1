@@ -1,0 +1,12 @@
+.OrderItem {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 5px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.OrderItem .name {
+  flex-grow: 1;
+}

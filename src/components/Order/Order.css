@@ -1,0 +1,7 @@
+.Order {
+  width: 400px;
+}
+
+.Order .Order-Container {
+  padding: 10px;
+}

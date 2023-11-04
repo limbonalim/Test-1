@@ -4,12 +4,13 @@ interface Props {
   name: string;
   image: string;
   price: number;
+  addItem: React.MouseEventHandler
 }
 
-const Item: React.FC<Props> = ({name, image, price}) => {
+const Item: React.FC<Props> = ({name, image, price, addItem}) => {
 
   return (
-    <div>
+    <div onClick={addItem}>
       <img src={image} alt={name}/>
       <div>
         <span>{name}</span>
