@@ -3,7 +3,6 @@ export interface MenuItems {
   price: number;
   image: string;
 }
-
 export interface Orders {
   name: string;
   price: number;

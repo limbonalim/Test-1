@@ -1,5 +1,13 @@
+.Item {
+  border: 1px solid #535bf2;
+  border-radius: 15px;
+  display: flex;
+  padding: 0 20px 0 0;
+}
 
 .Item img {
+  border-radius: 15px 0 0 15px;
   width: 150px;
   height: auto;
+  margin-right: 5px;
 }

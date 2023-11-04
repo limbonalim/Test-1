@@ -5,7 +5,7 @@ import './Menu.css'
 
 interface Props {
   menu: MenuItems[];
-  addItem: any;
+  addItem: (name:string, price:number) => void;
 }
 
 const Menu:React.FC<Props> = ({menu, addItem}) => {

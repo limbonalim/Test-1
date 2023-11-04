@@ -9,14 +9,21 @@ interface Props {
 }
 
 const Order:React.FC <Props> = ({totalCost, order, deleteItem}) => {
-
   return (
     <div className="Order">
       <div>
         Total: {totalCost}
       </div>
-      <div className="Order-Container">
-        {order.map((item, index) => <OrderItem key={index} name={item.name} quantity={item.quantity} cost={item.price} deleteItem={() => deleteItem(item.name, item.price)}/>)}
+      <div>
+        {order.length > 0 ?
+          order.map((item, index) =>
+            <OrderItem
+              key={index}
+              name={item.name}
+              quantity={item.quantity}
+              cost={item.price}
+              deleteItem={() => deleteItem(item.name, item.price)}
+            />) : <div>Add something...</div>}
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const Item: React.FC<Props> = ({name, image, price, addItem}) => {
       <img src={image} alt={name}/>
       <div>
         <span>{name}</span>
-        <div>Price: {price}</div>
+        <div>Price: {price} KGS</div>
       </div>
     </div>
   );
