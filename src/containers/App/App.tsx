@@ -47,13 +47,14 @@ const App = () => {
   const deleteItem = (name: string, price: number) => {
     setTotal(prevState => prevState - price);
     setOrder(prevState => {
-      let isMoreThenOne = false;
-      prevState.forEach((item) => {
+      // let isMoreThenOne = false;
+      let moreThenOne = prevState.find(item => {
         if (name === item.name && item.quantity > 1) {
-          isMoreThenOne = true;
+          return true;
         }
+        return false;
       });
-      if (isMoreThenOne) {
+      if (moreThenOne) {
         return prevState.map((item) => {
           if (name === item.name) {
             return {...item, quantity: item.quantity - 1};

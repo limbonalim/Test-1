@@ -21,7 +21,7 @@ const Order: React.FC<Props> = ({totalCost, order, deleteItem}) => {
               key={index}
               name={item.name}
               quantity={item.quantity}
-              cost={item.price}
+              cost={item.price * item.quantity}
               deleteItem={() => deleteItem(item.name, item.price)}
             />) : <div>Add something...</div>
         }
